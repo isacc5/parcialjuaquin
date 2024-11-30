@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Inscripción</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH1ZBmnUS0oSDxlSLjiRMmRd5iaiefAj8hqA&s" alt="Logo Universidad" class="logo">
+    <h1>Formulario de Inscripción a Carrera</h1>
+  </header>
+
+  <form id="formulario" class="formulario-3d">
+    <section>
+      <h2>¿En qué carrera desea inscribirse?</h2>
+      <select name="carrera" required>
+        <option value="">Seleccione una carrera</option>
+        <option>Administración de Empresas</option>
+        <option>Bacteriología</option>
+        <option>Contaduría Pública</option>
+        <option>Derecho</option>
+        <option>Enfermería</option>
+        <option>Ingeniería de Sistemas</option>
+        <option>Instrumentación Quirúrgica</option>
+        <option>Licenciatura en Educación Infantil</option>
+        <option>Medicina</option>
+        <option>Odontología</option>
+        <option>Tecnología en Atención Prehospitalaria</option>
+        <option>Tecnología en Estética y Cosmetología</option>
+        <option>Tecnología en Mecánica Dental</option>
+        <option>Trabajo Social</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Información Personal</h2>
+      <div class="grid">
+        <label>Primer Nombre: <input type="text" name="primer_nombre" required></label>
+        <label>Segundo Nombre: <input type="text" name="segundo_nombre"></label>
+        <label>Primer Apellido: <input type="text" name="primer_apellido" required></label>
+        <label>Segundo Apellido: <input type="text" name="segundo_apellido"></label>
+        <label>Fecha de Nacimiento: <input type="date" name="fecha_nacimiento" required></label>
+        <label>Tipo de Documento:
+          <select name="tipo_documento" required>
+            <option value="">Seleccione</option>
+            <option>CC</option>
+            <option>TI</option>
+            <option>Pasaporte</option>
+          </select>
+        </label>
+        <label>Número del Documento: <input type="text" name="numero_documento" required></label>
+        <label>Sexo Biológico:
+          <select name="sexo_biologico" required>
+            <option value="">Seleccione</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Estado Civil:
+          <select name="estado_civil" required>
+            <option value="">Seleccione</option>
+            <option>Soltero</option>
+            <option>Casado</option>
+            <option>Divorciado</option>
+            <option>Viudo</option>
+          </select>
+        </label>
+        <label>Correo Electrónico: <input type="email" name="correo_electronico" required></label>
+        <label>Teléfono: <input type="tel" name="telefono"></label>
+        <label>Celular: <input type="tel" name="celular"></label>
+        <label>Dirección Residencial: <input type="text" name="direccion_residencial" required></label>
+        <label>País: <input type="text" name="pais" required></label>
+        <label>Ciudad: <input type="text" name="ciudad" required></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>¿Cuenta con alguna discapacidad?</h2>
+      <label><input type="radio" name="discapacidad" value="ninguna" checked> Ninguna</label>
+      <label><input type="radio" name="discapacidad" value="motriz"> Discapacidad motriz</label>
+      <label><input type="radio" name="discapacidad" value="sorda"> Discapacidad sorda</label>
+      <label><input type="radio" name="discapacidad" value="cognitiva"> Discapacidad cognitiva</label>
+      <label><input type="radio" name="discapacidad" value="sordoceguera"> Sordoceguera</label>
+      <label><input type="radio" name="discapacidad" value="trastorno"> Trastorno de la voz y el habla</label>
+      <label>
+        <input type="radio" name="discapacidad" value="otra" id="otra-discapacidad">
+        Otra
+      </label>
+      <div id="campo-otra-discapacidad" class="hidden">
+        <label>Diga cuál es su otra discapacidad: <input type="text" name="otra_discapacidad"></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>¿Usted trabaja actualmente?</h2>
+      <label><input type="radio" name="trabaja" value="no" checked> No estoy trabajando</label>
+      <label><input type="radio" name="trabaja" value="empleado"> Sí, empleado</label>
+      <label><input type="radio" name="trabaja" value="independiente"> Sí, independiente</label>
+    </section>
+
+    <button type="submit" class="boton-enviar-3d">Enviar</button>
+  </form>
+
+  <script>
+    // Escuchar el cambio en los radios de discapacidad
+    const radios = document.querySelectorAll('input[name="discapacidad"]');
+    const campoOtra = document.getElementById('campo-otra-discapacidad');
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === 'otra') {
+          campoOtra.classList.remove('hidden');
+        } else {
+          campoOtra.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
